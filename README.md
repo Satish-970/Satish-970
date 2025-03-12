@@ -35,11 +35,12 @@
 - ⚡ Fun fact **I think I am funny man**
 
 
-<p align="left">
- <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1651780155240/7SZuYu_oq.gif?auto=format,compress&gif-q=60&format=webm" width="700" height="280"/>
 
-
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Satish-970/Satish-970/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Satish-970/Satish-970/output/github-snake.svg" />
+  <img alt="github-snake" src="https://raw.githubusercontent.com/Satish-970/Satish-970/output/github-snake.svg" />
+</picture>
 
 ---
 
