@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write  # Grants write access
+      contents: write  # Grants write access to the repository
 
     steps:
       # Step 1: Checkout repository
@@ -28,7 +28,19 @@ jobs:
             dist/github-contribution-grid-snake.gif
             dist/github-contribution-grid-snake.svg
 
-      # Step 3: Deploy the generated files to the 'output' branch
+      # Step 3: Debug - Check if files are generated
+      - name: List Generated Files
+        run: ls -la dist || echo "No files found in dist directory"
+
+      # Step 4: Ensure output branch exists
+      - name: Create output branch if it does not exist
+        run: |
+          git fetch origin output || echo "No output branch yet"
+          git checkout output || git checkout --orphan output
+          git commit --allow-empty -m "Initial commit" || echo "Branch already initialized"
+          git push origin output || echo "Branch already exists"
+
+      # Step 5: Deploy the generated files to the 'output' branch
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -36,3 +48,4 @@ jobs:
           publish_dir: ./dist
           publish_branch: output
           commit_message: "Update snake animation [skip ci]"
+          keep_files: true  # Keeps existing files instead of overwriting everything
