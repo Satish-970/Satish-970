@@ -81,5 +81,5 @@
 </p>
 
 <p>
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=satish-970&" alt="GitHub Streak Stats" />
+  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=satish-970" alt="GitHub Streak Stats" />
 </p>
