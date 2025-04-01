@@ -23,16 +23,16 @@
 </div>
 
 ## 🚀 About Me
-- 🔭 I’m currently working on [Bitcoin price](https://github.com/Satish-970/Bitcoin-price)
+- 🔭 My recent project was [Bitcoin price](https://github.com/Satish-970/Bitcoin-price)
 - 🌱 I’m currently learning **Data Structures, Jupyter Notebook, PyCharm**
-- 👯 I’m looking to collaborate with **Data Scientists**
-- 🤝 I’m looking for help with **None**
+- 👯 I’m looking to collaborate with **Data Scientists /a Data analyst**
+- 🤝 I’m looking for help with **Professional developer /Data engineer to gain knowledge.**
 - 👨‍💻 All of my projects are available at [GitHub](https://github.com/Satish-970)
 - 📝 I regularly write articles on [My Blog](https://satishportfolio.blogspot.com/)
 - 💬 Ask me about **Java, R, Tableau**
 - 📫 Reach me at **satishpakalapati65@gmail.com**
-- 📄 Know about my experiences [Resume](https://drive.google.com/file/d/1dVbiKa7WquNfans2KFCnxY_aVdaz81Pw/view?usp=sharing)
-- ⚡ Fun fact **I think I am funny man**
+- 📄 Know about my experiences [Resume](https://drive.google.com/file/d/1Nj362b0dPpk_28A42usagxcP4SF08v8i/view?usp=drivesdk)
+- ⚡ Fun fact **Mistakes can be useful !!!**
 
 
 
