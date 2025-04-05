@@ -1,41 +1,98 @@
-<h1 align="center">Hi 👋, I'm Satish Pakalapati</h1>
-<h3 align="center">A passionate Data Scientist from India</h3>
 
+
+
+
+
+<!-- Dynamic Greeting Banner -->
+<h1 align="center">Hey there 👋, I'm Satish Pakalapati</h1>
+<h3 align="center">🚀 Data Science Enthusiast | 📊 Aspiring Developer | From India</h3>
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=satish-970&label=Profile%20views&color=0e75b6&style=flat" alt="satish-970" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&pause=1000&center=true&width=650&lines=This+is+Satish+Pakalapati+%F0%9F%91%8B%F0%9F%91%8B%F0%9F%91%8B;Welcome+to+my+GitHub+profile!+%F0%9F%8C%9F;Passionate+about+Data+%26+Coding+%F0%9F%A7%A0;Always+learning+something+%F0%9F%9A%80+new!;Let%27s+connect+%F0%9F%A4%9D+and+build+%F0%9F%9B%A0%EF%B8%8F+something+awesome+%F0%9F%A4%97" alt="Typing SVG" />
 </p>
 
-<p align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=satish-970" alt="satish-970" />
-  </a>
-</p>
 
+---
+<div style="display: flex; flex-direction: column; align-items: flex-start;">
+  <img src="https://user-images.githubusercontent.com/74038190/212748830-4c709398-a386-4761-84d7-9e10b98fbe6e.gif" width="400" align="right" style="margin-right: 20px; margin-bottom: 10px;">
+  <div>
+    <h3>🚀 About Me</h3>
+    <ul>
+      <li>🔭 My recent project was <a href="https://github.com/Satish-970/Bitcoin-price">Bitcoin price</a></li>
+      <li>🌱 I’m currently learning <b>Data Structures, Jupyter Notebook, PyCharm</b></li>
+      <li>👯 I’m looking to collaborate with <b>Data Scientists / a Data analyst</b></li>
+      <li>🤝 I’m looking for help with <b>Professional developer / Data engineer.</b></li>
+      <li>👨‍💻 All of my projects are available at <a href="https://github.com/Satish-970">GitHub</a></li>
+      <li>📝 I regularly write articles on <a href="https://satishportfolio.blogspot.com/">My Blog</a></li>
+      <li>💬 Ask me about <b>Java, R, Tableau</b></li>
+      <li>📫 Reach me at <a href="mailto:satishpakalapati65@gmail.com">satishpakalapati65@gmail.com</a></li>
+      <li>📄 View my Résumé: <a href="https://drive.google.com/file/d/1Nj362b0dPpk_28A42usagxcP4SF08v8i/view?usp=drivesdk">📄 Get it from here</a></li>
+      <li>⚡ Fun fact: <b>Mistakes can be useful !!!</b></li>
+    </ul>
+    <hr>
+  </div>
+</div>
+---
+
+### 🧰 My Tech Toolbox
 <p align="center">
-  <a href="https://twitter.com/@satishpakalap22" target="blank">
-    <img src="https://img.shields.io/twitter/follow/@satishpakalap22?logo=twitter&style=for-the-badge" alt="@satishpakalap22" />
-  </a>
+  <a href="https://www.python.org" target="_blank"><img src="https://skillicons.dev/icons?i=python" width="48" /></a>&nbsp;&nbsp;
+  <a href="https://www.java.com" target="_blank"><img src="https://skillicons.dev/icons?i=java" width="48" /></a>&nbsp;&nbsp;
+  <a href="https://en.cppreference.com/w/c" target="_blank"><img src="https://skillicons.dev/icons?i=c" width="48" /></a>&nbsp;&nbsp;
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"><img src="https://skillicons.dev/icons?i=html" width="48" /></a>&nbsp;&nbsp;
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img src="https://skillicons.dev/icons?i=css" width="48" /></a>&nbsp;&nbsp;
+  <a href="https://www.mysql.com" target="_blank"><img src="https://skillicons.dev/icons?i=mysql" width="48" /></a>&nbsp;&nbsp;
+  <a href="https://git-scm.com" target="_blank"><img src="https://skillicons.dev/icons?i=git" width="48" /></a>&nbsp;&nbsp;
+  <a href="https://hadoop.apache.org" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg" width="48" alt="Hadoop" /></a>&nbsp;&nbsp;
+  <a href="https://www.figma.com" target="_blank"><img src="https://skillicons.dev/icons?i=figma" width="48" /></a>
 </p>
 
 ---
-<div style="display: flex; justify-content: space-between; align-items: center;">
-  <img src="https://user-images.githubusercontent.com/74038190/212748830-4c709398-a386-4761-84d7-9e10b98fbe6e.gif" width="400" height="200" align="right">
+<h3>🌍 Connect with Me</h3>
+
+
+<p align="center">
+  <a href="https://linkedin.com/in/satishpakalapati" target="_blank" style="text-decoration:none;">
+    <img src="https://img.icons8.com/color/48/000000/linkedin.png" width="70" />
+  </a>
+  <a href="https://twitter.com/satishpakalap22" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/twitterx--v1.png" width="70" />
+  </a>
+  <a href="https://instagram.com/satishchoudary993" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" width="70" />
+  </a>
+  <a href="https://fb.com/satish.pakalapati.71" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" width="70" />
+  </a>
+  <a href="https://www.hackerrank.com/satishpakalapat1" target="_blank">
+    <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-hackerrank-is-a-technology-company-that-focuses-on-competitive-programming-logo-color-tal-revivo.png" width="70" />
+  </a>
+</p>
+
+
+
+
+---
+
+### 🏆 MY GitHub Trophies
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=satish-970&theme=gruvbox&column=7&margin-w=15" alt="trophies"/>
+</p>
+
+---
+
+### 📈 MY GitHub Stats & Activity
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=satish-970&show_icons=true&theme=radical" height="170" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=satish-970&layout=compact&theme=radical" height="170"/>
 </div>
 
-## 🚀 About Me
-- 🔭 My recent project was [Bitcoin price](https://github.com/Satish-970/Bitcoin-price)
-- 🌱 I’m currently learning **Data Structures, Jupyter Notebook, PyCharm**
-- 👯 I’m looking to collaborate with **Data Scientists /a Data analyst**
-- 🤝 I’m looking for help with **Professional developer /Data engineer to gain knowledge.**
-- 👨‍💻 All of my projects are available at [GitHub](https://github.com/Satish-970)
-- 📝 I regularly write articles on [My Blog](https://satishportfolio.blogspot.com/)
-- 💬 Ask me about **Java, R, Tableau**
-- 📫 Reach me at **satishpakalapati65@gmail.com**
-- 📄 Know about my experiences [Resume](https://drive.google.com/file/d/1Nj362b0dPpk_28A42usagxcP4SF08v8i/view?usp=drivesdk)
-- ⚡ Fun fact **Mistakes can be useful !!!**
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=satish-970&theme=tokyonight" height="150"/>
+</div>
 
+---
 
-
+### 🐍 MY GitHub Contribution 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Satish-970/Satish-970/output/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Satish-970/Satish-970/output/github-snake.svg" />
@@ -44,42 +101,12 @@
 
 ---
 
-## 🌐 Connect with Me
-<p align="left">
-  <a href="https://dev.to/@satish970" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="dev" height="30" width="40" /></a>
-  <a href="https://twitter.com/@satishpakalap22" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="twitter" height="30" width="40" /></a>
-  <a href="https://linkedin.com/in/satishpakalapati" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin" height="30" width="40" /></a>
-  <a href="https://fb.com/satishpakalapati" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="facebook" height="30" width="40" /></a>
-  <a href="https://instagram.com/satishchoudary993" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="instagram" height="30" width="40" /></a>
-  <a href="https://www.hackerrank.com/satishpakalapat1" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="hackerrank" height="30" width="40" /></a>
+### 💡 Quote of the Day
+
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" />
 </p>
 
----
-
-## 🛠️ Languages and Tools
-<p align="left">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
-  <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
-  <img src="https://www.vectorlogo.zone/logos/apache_hadoop/apache_hadoop-icon.svg" alt="hadoop" width="40" height="40"/>
-  <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/>
-</p>
-
----
-
-## 📊 GitHub Stats
-<p>
-  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=satish-970&show_icons=true&locale=en&layout=compact" alt="Top Languages" />
-</p>
-
-<p>&nbsp;
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=satish-970&show_icons=true&locale=en" alt="GitHub Stats" />
-</p>
-
-<p>
-  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=satish-970&" alt="GitHub Streak Stats" />
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF00FF,100:00FFFF&height=100&section=footer&text=⚡%20Built%20by%20SatishPakalapati&fontAlign=center&fontColor=FFFFFF&fontSize=18" />
 </p>
