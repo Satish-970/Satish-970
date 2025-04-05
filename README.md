@@ -1,20 +1,17 @@
 
-
-
-
-
-<!-- Dynamic Greeting Banner -->
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000" height="0.4" align="center">
 <h1 align="center">Hey there 👋, I'm Satish Pakalapati</h1>
 <h3 align="center">🚀 Data Science Enthusiast | 📊 Aspiring Developer | From India</h3>
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&pause=1000&center=true&width=650&lines=This+is+Satish+Pakalapati+%F0%9F%91%8B%F0%9F%91%8B%F0%9F%91%8B;Welcome+to+my+GitHub+profile!+%F0%9F%8C%9F;Passionate+about+Data+%26+Coding+%F0%9F%A7%A0;Always+learning+something+%F0%9F%9A%80+new!;Let%27s+connect+%F0%9F%A4%9D+and+build+%F0%9F%9B%A0%EF%B8%8F+something+awesome+%F0%9F%A4%97" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&pause=1000&center=true&width=650&lines=This+is+Satish+Pakalapati+%F0%9F%91%8B%F0%9F%91%8B%F0%9F%91%8B;Welcome+to+my+GitHub+profile!+%F0%9F%8C%9F;Passionate+about+Data+%26+Coding+%F0%9F%A7%A0;Always+learning+something+%F0%9F%9A%80+new!;Let%27s+connect+%F0%9F%A4%9D+and+build+%F0%9F%9B%A0%EF%B8%8F+something+awesome+%F0%9F%A4%97" alt="Typing SVG"/>
 </p>
+
 
 
 ---
 <div style="display: flex; flex-direction: column; align-items: flex-start;">
-  <img src="https://user-images.githubusercontent.com/74038190/212748830-4c709398-a386-4761-84d7-9e10b98fbe6e.gif" width="400" align="right" style="margin-right: 20px; margin-bottom: 10px;">
-  <div>
+  <img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="380" height="320" align="right" style="margin-right: 20px; margin-bottom: 10px;">
+    <div>
     <h3>🚀 About Me</h3>
     <ul>
       <li>🔭 My recent project was <a href="https://github.com/Satish-970/Bitcoin-price">Bitcoin price</a></li>
@@ -31,7 +28,6 @@
     <hr>
   </div>
 </div>
----
 
 ### 🧰 My Tech Toolbox
 <p align="center">
@@ -110,3 +106,5 @@
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF00FF,100:00FFFF&height=100&section=footer&text=⚡%20Built%20by%20SatishPakalapati&fontAlign=center&fontColor=FFFFFF&fontSize=18" />
 </p>
+
+ 
