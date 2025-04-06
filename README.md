@@ -1,5 +1,5 @@
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="1000" height="0.4" align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="0.8" align="center">
 <h1 align="center">Hey there 👋, I'm Satish Pakalapati</h1>
 <h3 align="center">🚀 Data Science Enthusiast | 📊 Aspiring Developer | From India</h3>
 <p align="center">
