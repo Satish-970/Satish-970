@@ -109,17 +109,16 @@
 
 ---
 
+<h2>🌆 GitHub Skyline</h2>
+<p align="center">
+  <img src="skyline.png" alt="GitHub Skyline 2025"  width="1000" height="400"/>
+</p>
+
 ### 💡 Quote of the Day
 
 <p align="center">
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" />
 </p>
-
-<h2>Sky Line Github contribution</h2>
-<p align="center">
-  <img src="skyline.png" alt="GitHub Skyline 2025"  width="1000" height="400"/>
-</p>
-
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF00FF,100:00FFFF&height=100&section=footer&text=⚡%20Built%20by%20SatishPakalapati&fontAlign=center&fontColor=FFFFFF&fontSize=18" />
 </p>
