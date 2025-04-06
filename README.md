@@ -1,10 +1,21 @@
 
 <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="0.8" align="center">
-<h1 align="center">Hey there 👋, I'm Satish Pakalapati</h1>
-<h3 align="center">🚀 Data Science Enthusiast | 📊 Aspiring Developer | From India</h3>
+<h1 align="center"><strong>Hey there 👋, I'm Satish Pakalapati</strong></h1>
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&pause=1000&color=2ECC71&center=true&vCenter=true&width=800&lines=🚀+Data+Science+Enthusiast;📊+Aspiring+Web+Developer;🌍+From+India" alt="Typing SVG" />
+</p>
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&pause=1000&center=true&width=650&lines=This+is+Satish+Pakalapati+%F0%9F%91%8B%F0%9F%91%8B%F0%9F%91%8B;Welcome+to+my+GitHub+profile!+%F0%9F%8C%9F;Passionate+about+Data+%26+Coding+%F0%9F%A7%A0;Always+learning+something+%F0%9F%9A%80+new!;Let%27s+connect+%F0%9F%A4%9D+and+build+%F0%9F%9B%A0%EF%B8%8F+something+awesome+%F0%9F%A4%97" alt="Typing SVG"/>
 </p>
+
+<p align="right">
+  <img src="https://komarev.com/ghpvc/?username=satish-970&label=Unique%20Visitors&color=2ECf49&style=flat" alt="Unique Visitors" width="140" height="30" />
+</p>
+
+
+
+
+
 
 
 
