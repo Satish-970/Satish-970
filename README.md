@@ -94,9 +94,11 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=satish-970&layout=compact&theme=radical" height="170"/>
 </div>
 
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=satish-970&theme=tokyonight" height="150"/>
-</div>
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=satish-970&theme=tokyonight" height="170" alt="GitHub Streak"/>
+</p>
+
+
 
 ---
 
