@@ -2,23 +2,16 @@
 <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="0.8" align="center">
 <h1 align="center"><strong>Hey there 👋, I'm Satish Pakalapati</strong></h1>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Satish-970/Satish-970/refs/heads/main/download.svg" alt="Typing SVG" />
+  <img src="https://raw.githubusercontent.com/Satish-970/Satish-970/refs/heads/main/download.svg" alt="Typing SVG"/>
 </p>
 
-
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&pause=1600&center=true&width=650&lines=This+is+Satish+Pakalapati+%F0%9F%91%8B%F0%9F%91%8B%F0%9F%91%8B;Welcome+to+my+GitHub+profile!+%F0%9F%8C%9F;Passionate+about+Data+%26+Coding+%F0%9F%A7%A0;Always+learning+something+%F0%9F%9A%80+new!;Let%27s+connect+%F0%9F%A4%9D+and+build+%F0%9F%9B%A0%EF%B8%8F+something+awesome+%F0%9F%A4%97" alt="Typing SVG"/>
+  <img src="https://raw.githubusercontent.com/Satish-970/Satish-970/refs/heads/main/subline.svg" alt="Typing SVG"/>
 </p>
 
 <p align="right">
   <img src="https://komarev.com/ghpvc/?username=satish-970&label=Profile%20Views&color=2ECf49&style=flat" alt="Unique Visitors" width="120" height="20" />
 </p>
-
-
-
-
-
-
 
 
 ---
