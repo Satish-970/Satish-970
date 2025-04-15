@@ -20,7 +20,7 @@
     <div>
     <h3>🚀 About Me</h3>
     <ul>
-      <li>🔭 My recent project was <a href="https://github.com/Satish-970/Bitcoin-price">Bitcoin price</a></li>
+      <li>🔭 My recent project was <a href="https://github.com/Satish-970/Satish-Portfolio">Satish-Portfolio</a></li>
       <li>🌱 I’m currently learning <b>Data Structures, Jupyter Notebook, PyCharm</b></li>
       <li>👯 I’m looking to collaborate with <b>Data Scientists / a Data analyst</b></li>
       <li>🤝 I’m looking for help with <b>Professional developer / Data engineer.</b></li>
