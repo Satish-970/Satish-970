@@ -28,7 +28,7 @@
       <li>📝 I regularly write articles on <a href="https://satishportfolio.blogspot.com/">My Blog</a></li>
       <li>💬 Ask me about <b>Java, R, Tableau</b></li>
       <li>📫 Reach me at <a href="mailto:satishpakalapati65@gmail.com">satishpakalapati65@gmail.com</a></li>
-      <li>📄 View my Résumé: <a href="https://drive.google.com/file/d/1Nj362b0dPpk_28A42usagxcP4SF08v8i/view?usp=drivesdk">📄 Get it from here</a></li>
+      <li>📄 View my Résumé: <a href="https://satishpakalapati.netlify.app/images/Resume.pdf">📄 Get it from here</a></li>
       <li>⚡ Fun fact: <b>Mistakes can be useful !!!</b></li>
     </ul>
     <hr>
