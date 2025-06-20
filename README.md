@@ -105,6 +105,12 @@
 </picture>
 
 ---
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=satish-970&theme=react-dark&area=true&hide_border=true" alt="GitHub Activity Graph" />
+</p>
+
+
+---
 
 <h2>🌆 GitHub Skyline</h2>
 <p align="center">
