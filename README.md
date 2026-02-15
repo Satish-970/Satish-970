@@ -1,11 +1,10 @@
-<h1 align="center">Satish</h1>
-<p align="center">Data Science | Developer | Designer</p>
-
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Satish%20Pakalapati&fontSize=48&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Data%20Scientist%20%7C%20Full%20Stack%20Developer%20%7C%20AI%20Enthusiast&descSize=18&descAlignY=55" width="100%"/>
+</p>
+ 
 <div align="center">
 
-<!-- Dynamic Header with Animated Typing -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Satish%20Pakalapati&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Data%20Scientist%20%7C%20Full%20Stack%20Developer%20%7C%20AI%20Enthusiast&descSize=16&descAlignY=51"/>
-
+ 
 <!-- Animated Typing SVG -->
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=2E97F7&center=true&vCenter=true&width=600&lines=Building+Intelligent+Solutions+%F0%9F%A4%96;Data+Science+%7C+Machine+Learning+%7C+Web+Dev;Transforming+Data+into+Insights+%F0%9F%93%8A;Open+Source+Contributor+%F0%9F%8C%9F" alt="Typing SVG" />
