@@ -1,0 +1,29 @@
+name: Update Banner
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Generate banner
+      run: python scripts/generate_banner.py
+
+    - name: Commit banner
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+        git add banner.svg
+        git commit -m "Auto update banner" || echo "No changes"
+        git push
