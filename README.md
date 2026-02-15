@@ -1,7 +1,6 @@
 
 <div align="center">
-<!-- Dynamic Header with Smooth Auto Gradient -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Satish%20Pakalapati&fontSize=46&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Data%20Scientist%20%7C%20Full%20Stack%20Developer%20%7C%20AI%20Enthusiast&descSize=18&descAlignY=55"/>
+ <img src="banner.svg"/>
 
 <!-- Animated Typing SVG -->
 <p align="center">
