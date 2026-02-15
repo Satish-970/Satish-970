@@ -268,6 +268,11 @@ AI-powered resume analyzer that helps optimize resumes for Applicant Tracking Sy
 
 ## 📝 Latest Blog Posts
 <!-- BLOG-POST-LIST:START -->
+- [CL1: The First Biological Computer Built in the World Using Living Human Neurons.](https://satishportfolio.blogspot.com/2026/01/cl1-first-biological-computer-built-in.html)
+- [AI have to be under strict restrictions, Godfather of AI Geoffrey Hinton](https://satishportfolio.blogspot.com/2026/01/ai-have-to-be-under-strict-restrictions.html)
+- [Day 1 of The Internet](https://satishportfolio.blogspot.com/2025/10/day-1-of-internet.html)
+- [🌐 Tech Breakthroughs of September 2025: From Exotic Alloys to AI Factories](https://satishportfolio.blogspot.com/2025/09/tech-breakthroughs-of-september-2025.html)
+- [The Programmer&#39;s Quest](https://satishportfolio.blogspot.com/2025/05/the-programmers-quest.html)
 <!-- BLOG-POST-LIST:END -->
 
 <div align="center">
