@@ -264,7 +264,7 @@ AI-powered resume analyzer that helps optimize resumes for Applicant Tracking Sy
 
 ---
 
-<div align="center">
+<div align="left">
 
 ## 📝 Latest Blog Posts
 <!-- BLOG-POST-LIST:START -->
