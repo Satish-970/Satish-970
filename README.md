@@ -1,132 +1,417 @@
-
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100%" height="0.8" align="center">
-
-
-<h1 align="center"><strong>Hey there 👋, I'm Satish Pakalapati</strong></h1>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Satish-970/Satish-970/refs/heads/main/download.svg" alt="Typing SVG"/>
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Satish-970/Satish-970/refs/heads/main/subline.svg" alt="Typing SVG"/>
-</p>
-
-<p align="right">
-  <img src="https://komarev.com/ghpvc/?username=satish-970&label=Profile%20Views&color=2ECf49&style=flat" alt="Unique Visitors" width="120" height="20" />
-</p>
-
-
----
-<div style="display: flex; flex-direction: column; align-items: flex-start;">
-  <img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="380" height="320" align="right" style="margin-right: 20px; margin-bottom: 10px;">
-    <div>
-    <h3>🚀 About Me</h3>
-    <ul>
-      <li>🔭 My recent project was <a href="https://github.com/Satish-970/satish-portfolio">Satish-Portfolio</a></li>
-      <li>🌱 I’m currently learning <b>Data Structures, Jupyter Notebook, PyCharm</b></li>
-      <li>👯 I’m looking to collaborate with <b>Data Scientists / a Data analyst</b></li>
-      <li>🤝 I’m looking for help with <b>Professional developer / Data engineer.</b></li>
-      <li>👨‍💻 All of my projects are available at <a href="https://github.com/Satish-970">GitHub</a></li>
-      <li>📝 I regularly write articles on <a href="https://satishportfolio.blogspot.com/">My Blog</a></li>
-      <li>💬 Ask me about <b>Java, R, Tableau</b></li>
-      <li>📫 Reach me at <a href="mailto:satishpakalapati65@gmail.com">satishpakalapati65@gmail.com</a></li>
-      <li>📄 View my Résumé: <a href="https://satishpakalapati.netlify.app/Resume.pdf">📄 Get it from here</a></li>
-      <li>⚡ Fun fact: <b>Mistakes can be useful !!!</b></li>
-    </ul>
-    <hr>
-  </div>
-</div>
-
-### 🧰 My Tech Toolbox
-<p align="center">
-  <a href="https://www.python.org" target="_blank"><img src="https://skillicons.dev/icons?i=python" width="48" /></a>&nbsp;&nbsp;
-  <a href="https://www.java.com" target="_blank"><img src="https://skillicons.dev/icons?i=java" width="48" /></a>&nbsp;&nbsp;
-  <a href="https://en.cppreference.com/w/c" target="_blank"><img src="https://skillicons.dev/icons?i=c" width="48" /></a>&nbsp;&nbsp;
-  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"><img src="https://skillicons.dev/icons?i=html" width="48" /></a>&nbsp;&nbsp;
-  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img src="https://skillicons.dev/icons?i=css" width="48" /></a>&nbsp;&nbsp;
-  <a href="https://www.mysql.com" target="_blank"><img src="https://skillicons.dev/icons?i=mysql" width="48" /></a>&nbsp;&nbsp;
-  <a href="https://git-scm.com" target="_blank"><img src="https://skillicons.dev/icons?i=git" width="48" /></a>&nbsp;&nbsp;
-  <a href="https://hadoop.apache.org" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg" width="48" alt="Hadoop" /></a>&nbsp;&nbsp;
-  <a href="https://www.figma.com" target="_blank"><img src="https://skillicons.dev/icons?i=figma" width="48" /></a>
-</p>
-
----
-<h3>🌍 Connect with Me</h3>
-
-
-<p align="center">
-  <a href="https://linkedin.com/in/satishpakalapati" target="_blank" style="text-decoration:none;">
-    <img src="https://img.icons8.com/color/48/000000/linkedin.png" width="70" />
-  </a>
-  <a href="https://twitter.com/satishpakalap22" target="_blank">
-    <img src="https://img.icons8.com/color/48/000000/twitterx--v1.png" width="70" />
-  </a>
-  <a href="https://instagram.com/satishchoudary993" target="_blank">
-    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" width="70" />
-  </a>
-  <a href="https://fb.com/satish.pakalapati.71" target="_blank">
-    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" width="70" />
-  </a>
-  <a href="https://www.hackerrank.com/satishpakalapat1" target="_blank">
-    <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-hackerrank-is-a-technology-company-that-focuses-on-competitive-programming-logo-color-tal-revivo.png" width="70" />
-  </a>
-</p>
-
-
-
-
----
-
-### 🏆 MY GitHub Trophies
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=satish-970&theme=gruvbox&column=7&margin-w=15" alt="trophies"/>
-</p>
-
----
-
-### 📈 MY GitHub Stats & Activity
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=satish-970&show_icons=true&theme=radical" height="170" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=satish-970&layout=compact&theme=radical" height="170"/>
+
+<!-- Dynamic Header with Animated Typing -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=Satish%20Pakalapati&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Data%20Scientist%20%7C%20Full%20Stack%20Developer%20%7C%20AI%20Enthusiast&descSize=16&descAlignY=51"/>
+
+<!-- Animated Typing SVG -->
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=2E97F7&center=true&vCenter=true&width=600&lines=Building+Intelligent+Solutions+%F0%9F%A4%96;Data+Science+%7C+Machine+Learning+%7C+Web+Dev;Transforming+Data+into+Insights+%F0%9F%93%8A;Open+Source+Contributor+%F0%9F%8C%9F" alt="Typing SVG" />
+</p>
+
+<!-- Social Badges with Animation -->
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://satishpakalapati.netlify.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/satishpakalapati)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:satishpakalapati65@gmail.com)
+[![HackerRank](https://img.shields.io/badge/HackerRank-00EA64?style=for-the-badge&logo=hackerrank&logoColor=white)](https://www.hackerrank.com/satishpakalapat1)
+[![Blog](https://img.shields.io/badge/Blog-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://satishportfolio.blogspot.com/)
+
+<!-- Profile Views Counter -->
+<img src="https://komarev.com/ghpvc/?username=satish-970&label=Profile%20Views&color=brightgreen&style=for-the-badge" alt="Profile Views" />
+
 </div>
+
+---
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=satish-970&show_icons=true&theme=tokyonight" height="170" alt="GitHub Streak"/>
+  
+## 🎯 Professional Summary
+
 </div>
 
+```
+👨‍💻 Data Scientist & Full Stack Developer passionate about leveraging AI/ML
+    to solve real-world problems and building scalable web applications.
 
+🎓 Specialized in Data Structures, Machine Learning, Big Data Technologies
+    (Hadoop, Spark), and Full Stack Development (Java, Python, JavaScript)
 
+🔬 Currently exploring: Advanced ML algorithms, Deep Learning, Cloud Computing
+    
+🌍 Location: Vijayawada, Andhra Pradesh, India
+```
 
 ---
 
-### 🐍 MY GitHub Contribution 
-<picture>
+<div align="center">
+
+## 🚀 Featured Projects
+
+</div>
+
+<table align="center">
+<tr>
+<td width="50%" valign="top">
+
+### 🏦 [Banking Interface](https://github.com/Satish-970/BankingInterface)
+A comprehensive banking system built with Java featuring account management, transactions, and security features.
+
+**Tech Stack:** `Java` `OOP` `Security`
+
+⭐ **Key Features:**
+- Secure authentication system
+- Transaction management
+- Account operations
+- Clean architecture
+
+</td>
+<td width="50%" valign="top">
+
+### 📊 [Bitcoin Price Prediction](https://github.com/Satish-970/Bitcoin-price)
+Machine learning model for cryptocurrency price prediction using regression algorithms.
+
+**Tech Stack:** `Python` `Scikit-learn` `Pandas`
+
+⭐ **Key Features:**
+- Regression modeling
+- Data visualization
+- Price forecasting
+- Performance metrics
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### 🌐 [Personal Portfolio](https://github.com/Satish-970/portfolio)
+Modern, responsive portfolio website showcasing skills, projects, and professional journey.
+
+**Tech Stack:** `HTML` `CSS` `JavaScript`
+
+⭐ **Key Features:**
+- Responsive design
+- Interactive UI/UX
+- Project showcase
+- Blog integration
+
+**[🔗 Live Demo](https://satishpakalapati.netlify.app/)**
+
+</td>
+<td width="50%" valign="top">
+
+### 🚆 [Railway Reservation System](https://github.com/Satish-970/Html-Railway-Reservation)
+Full-featured railway booking system with user authentication and seat management.
+
+**Tech Stack:** `HTML` `CSS` `JavaScript`
+
+⭐ **Key Features:**
+- Seat booking system
+- User authentication
+- Ticket management
+- Responsive interface
+
+⭐ **1 Star** | 🍴 **3 Forks**
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### ☕ [DevHub - Java Full Stack](https://github.com/Satish-970/DevHub-JavaFullStack)
+Comprehensive Java full-stack application with modern architecture patterns.
+
+**Tech Stack:** `Java` `Spring Boot` `REST API`
+
+⭐ **Key Features:**
+- RESTful architecture
+- Database integration
+- Backend services
+- API development
+
+🍴 **1 Fork**
+
+</td>
+<td width="50%" valign="top">
+
+### 📝 [ATS Resume Checker](https://github.com/Satish-970/ats_resume_checker)
+AI-powered resume analyzer that helps optimize resumes for Applicant Tracking Systems.
+
+**Tech Stack:** `Python` `NLP` `Jupyter`
+
+⭐ **Key Features:**
+- Resume parsing
+- ATS compatibility check
+- Keyword optimization
+- Score generation
+
+⭐ **1 Star**
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+### 🔗 [View All Repositories →](https://github.com/Satish-970?tab=repositories)
+
+</div>
+
+---
+
+<div align="center">
+
+## 💻 Technology Stack
+
+</div>
+
+### **Languages**
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,java,c,html,css,js,r" alt="Languages" />
+</p>
+
+### **Data Science & ML**
+<p align="center">
+  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy"/>
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"/>
+  <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn"/>
+  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow"/>
+  <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter"/>
+  <img src="https://img.shields.io/badge/PyCharm-000000?style=for-the-badge&logo=pycharm&logoColor=white" alt="PyCharm"/>
+</p>
+
+### **Big Data & Analytics**
+<p align="center">
+  <img src="https://img.shields.io/badge/Apache%20Hadoop-66CCFF?style=for-the-badge&logo=apache-hadoop&logoColor=black" alt="Hadoop"/>
+  <img src="https://img.shields.io/badge/Apache%20Spark-E25A1C?style=for-the-badge&logo=apache-spark&logoColor=white" alt="Spark"/>
+  <img src="https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white" alt="Tableau"/>
+</p>
+
+### **Development & Tools**
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=git,mysql,figma,vscode,idea,eclipse" alt="Tools" />
+</p>
+
+### **Frameworks & Libraries**
+<p align="center">
+  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white" alt="Spring Boot"/>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"/>
+</p>
+
+---
+
+<div align="center">
+
+## 📊 GitHub Analytics
+
+</div>
+ 
+
+<div align="center">
+
+<!-- GitHub Streak Stats -->
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=satish-970&theme=tokyonight&hide_border=true&background=0D1117&stroke=58A6FF&ring=58A6FF&fire=FF6B6B&currStreakLabel=C9D1D9" alt="GitHub Streak"/>
+
+</div>
+
+<div align="center">
+
+<!-- Activity Graph -->
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=satish-970&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=58A6FF&line=1F6FEB&point=58A6FF&area=true&area_color=1F6FEB" alt="GitHub Activity Graph" width="95%"/>
+
+</div>
+
+---
+
+<div align="center">
+
+ 
+
+<div align="center">
+
+## 📈 Contribution Activity
+
+</div>
+
+<!-- 3D Contribution Graph -->
+  
+<!-- Snake Animation -->
+<picture align="center">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Satish-970/Satish-970/output/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Satish-970/Satish-970/output/github-snake.svg" />
   <img alt="github-snake" src="https://raw.githubusercontent.com/Satish-970/Satish-970/output/github-snake.svg" />
 </picture>
 
 ---
-### 📈 MY Contribution Graph
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=satish-970&theme=react-dark&area=true&hide_border=true" alt="GitHub Activity Graph" />
-</p>
 
+<div align="center">
+
+## 🎓 Certifications & Achievements
+
+</div>
+
+<div align="center">
+
+| **Platform** | **Certification** | **Year** |
+|:------------:|:-----------------:|:--------:|
+| 🏅 HackerRank | Problem Solving (Intermediate) | 2024 |
+| 🏅 Coursera | Data Science Specialization | 2024 |
+| 🏅 IBM | Full Stack Developer | 2024 |
+| 🏅 Apache | Spark & Hadoop Fundamentals | 2023 |
+
+</div>
 
 ---
 
-<h2>🌆 GitHub Skyline</h2>
+<div align="center">
+
+## 📝 Latest Blog Posts
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
+
+<div align="center">
+
+### 📚 [Read More Articles →](https://satishportfolio.blogspot.com/)
+
+</div>
+
+---
+
+<div align="center">
+
+## 🤝 Let's Connect & Collaborate
+
+</div>
+
+<div align="center">
+
+I'm always excited to collaborate on innovative projects, especially in:
+
+**🔬 Data Science & Machine Learning** • **🌐 Full Stack Development** • **☁️ Cloud Computing** • **🤖 AI/ML Projects**
+
+</div>
+
+<div align="center">
+
+### 📬 Reach Out
+
 <p align="center">
-  <img src="skyline.png" alt="GitHub Skyline 2025"  width="1000" height="400"/>
+  <a href="mailto:satishpakalapati65@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/>
+  </a>
+  <a href="https://linkedin.com/in/satishpakalapati">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="https://twitter.com/satishpakalap22">
+    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter"/>
+  </a>
+  <a href="https://instagram.com/satishchoudary993">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/>
+  </a>
+  <a href="https://dev.to/satish970">
+    <img src="https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white" alt="Dev.to"/>
+  </a>
+  <a href="https://codepen.io/Satish-970">
+    <img src="https://img.shields.io/badge/CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white" alt="CodePen"/>
+  </a>
 </p>
 
-### 💡 Quote of the Day
+</div>
 
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" />
-</p>
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF00FF,100:00FFFF&height=100&section=footer&text=⚡%20Built%20by%20SatishPakalapati&fontAlign=center&fontColor=FFFFFF&fontSize=18" />
-</p>
+---
 
+<div align="center">
+
+## 💡 Fun Facts & Interests
+
+</div>
+
+```yaml
+code_philosophy: "Mistakes can be useful - they're opportunities to learn and grow!"
+currently_learning: ["Advanced Deep Learning", "Cloud Architecture", "DevOps"]
+hobbies: ["Coding", "Reading Tech Blogs", "Contributing to Open Source"]
+favorite_quote: "The only way to do great work is to love what you do."
+coffee_or_tea: "Coffee ☕"
+```
+
+---
+
+<div align="center">
+
+## 📊 Weekly Development Breakdown
+
+</div>
+
+<!--START_SECTION:waka-->
+```text                                               
+Python       8 hrs 30 mins   ████████████░░░░░░░░░   48.2%
+Java         4 hrs 15 mins   ██████░░░░░░░░░░░░░░░   24.1%
+JavaScript   2 hrs 45 mins   ████░░░░░░░░░░░░░░░░░   15.6%
+SQL          1 hr 20 mins    ██░░░░░░░░░░░░░░░░░░░    7.6%
+HTML/CSS     48 mins         █░░░░░░░░░░░░░░░░░░░░    4.5%
+```
+<!--END_SECTION:waka-->
+
+---
+
+<div align="center">
+
+## 🎯 2026 Goals
+
+- [x] Complete Advanced ML Specialization
+- [x] Contribute to 10+ Open Source Projects
+- [ ] Build 5 Production-Ready AI Applications
+- [ ] Achieve 1000+ GitHub Stars
+- [ ] Mentor 50+ Aspiring Developers
+- [ ] Write 20+ Technical Blog Posts
+
+</div>
+
+---
+
+<div align="center">
+
+## 📄 Resume & Documentation
+
+<a href="https://satishpakalapati.netlify.app/Resume.pdf">
+  <img src="https://img.shields.io/badge/Download_Resume-FF5722?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white" alt="Download Resume"/>
+</a>
+
+</div>
+
+---
+
+<div align="center">
+
+## ⚡ Quick Stats
+
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=satish-970&theme=tokyonight)
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=satish-970&theme=tokyonight" alt="Repos per Language"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=satish-970&theme=tokyonight" alt="Most Commit Language"/>
+
+</div>
+
+---
+
+<div align="center">
+
+### 💭 Random Dev Quote
+
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight)
+
+</div>
+
+ 
+
+<div align="center">
+
+### ✨ Thank You for Visiting!
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer&fontSize=20"/>
+
+**Made with ❤️ by Satish Pakalapati**
+
+</div>
  
