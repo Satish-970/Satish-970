@@ -341,36 +341,24 @@ coffee_or_tea: "Coffee ☕"
 
 ---
 
-<div align="center">
+ 
 
-## 📊 Weekly Development Breakdown
-
-</div>
-
-<!--START_SECTION:waka-->
-```text                                               
-Python       8 hrs 30 mins   ████████████░░░░░░░░░   48.2%
-Java         4 hrs 15 mins   ██████░░░░░░░░░░░░░░░   24.1%
-JavaScript   2 hrs 45 mins   ████░░░░░░░░░░░░░░░░░   15.6%
-SQL          1 hr 20 mins    ██░░░░░░░░░░░░░░░░░░░    7.6%
-HTML/CSS     48 mins         █░░░░░░░░░░░░░░░░░░░░    4.5%
-```
-<!--END_SECTION:waka-->
-
----
-
+ 
 <div align="center">
 
 ## 🎯 2026 Goals
 
-- [x] Complete Advanced ML Specialization
-- [x] Contribute to 10+ Open Source Projects
-- [ ] Build 5 Production-Ready AI Applications
-- [ ] Achieve 1000+ GitHub Stars
-- [ ] Mentor 50+ Aspiring Developers
-- [ ] Write 20+ Technical Blog Posts
-
 </div>
+
+
+- [x] Build 29+ repositories showcasing diverse skills
+- [x] Earn Pull Shark & Quickdraw achievements
+- [x] Collaborate with CyberMetrics on enterprise projects
+- [x] Create portfolio website with live deployment
+- [ ] Reach 50+ GitHub stars across all repositories
+- [ ] Contribute to 3+ major open source projects
+- [ ] Publish 10+ technical articles on blog
+
 
 ---
 
