@@ -4,7 +4,7 @@
 
 <!-- Animated Typing SVG -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=2800&pause=900&color=3B82F6&center=true&vCenter=true&width=650&lines=Building+Intelligent+Solutions+%F0%9F%A4%96;Data+Science+%7C+Machine+Learning+%7C+Web+Development;Transforming+Data+into+Insights+%F0%9F%93%8A;Open+Source+Contributor+%F0%9F%8C%9F" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=2800&pause=900&color=3B82F6&center=true&vCenter=true&width=800&lines=Building+Intelligent+Solutions+%F0%9F%A4%96;Data+Science+%7C+Machine+Learning+%7C+Web+Development;Transforming+Data+into+Insights+%F0%9F%93%8A;Open+Source+Contributor+%F0%9F%8C%9F" alt="Typing SVG" />
 </p>
 
 <!-- Social Badges with Animation -->
