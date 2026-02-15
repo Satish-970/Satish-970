@@ -1,3 +1,6 @@
+<h1 align="center">Satish</h1>
+<p align="center">Data Science | Developer | Designer</p>
+
 <div align="center">
 
 <!-- Dynamic Header with Animated Typing -->
