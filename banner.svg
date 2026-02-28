@@ -13,7 +13,7 @@
     </style>
         <defs>
               <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#00c6ff"/><stop offset="100%" stop-color="#0072ff"/>
+                <stop offset="0%" stop-color="#E55D87"/><stop offset="100%" stop-color="#5FC3E4"/>
               </linearGradient>
             </defs>
         
