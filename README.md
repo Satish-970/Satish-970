@@ -267,11 +267,11 @@ AI-powered resume analyzer that helps optimize resumes for Applicant Tracking Sy
 
 ## 📝 Latest Blog Posts
 <!-- BLOG-POST-LIST:START -->
+- [Music with coding! How?](https://satishportfolio.blogspot.com/2026/05/music-with-coding-how.html)
+- [AI IN CODING?](https://satishportfolio.blogspot.com/2026/05/ai-in-coding.html)
 - [Bubble ? ? AI Bubble??](https://satishportfolio.blogspot.com/2026/05/bubble-ai-bubble.html)
 - [Google And Apple AI? What is it!!](https://satishportfolio.blogspot.com/2026/05/google-and-apple-ai-what-is-it.html)
 - [CL1: The First Biological Computer Built in the World Using Living Human Neurons.](https://satishportfolio.blogspot.com/2026/01/cl1-first-biological-computer-built-in.html)
-- [AI have to be under strict restrictions, Godfather of AI Geoffrey Hinton](https://satishportfolio.blogspot.com/2026/01/ai-have-to-be-under-strict-restrictions.html)
-- [Day 1 of The Internet](https://satishportfolio.blogspot.com/2025/10/day-1-of-internet.html)
 <!-- BLOG-POST-LIST:END -->
 
 <div align="center">
