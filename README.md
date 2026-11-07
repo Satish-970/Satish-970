@@ -11,8 +11,8 @@
 
 <div align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-code-photo-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-code-photo-light.svg">
   <img src="assets/hero-dark.svg" alt="Satish - dotted portrait and profile card" width="100%">
 </picture>
 </div>
