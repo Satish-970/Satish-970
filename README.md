@@ -26,33 +26,13 @@
 
 </div>
 
-<table align="center">
-<tr>
-<td align="center" valign="middle" width="340">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/avatar-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/avatar-light.svg">
-    <img src="assets/avatar-dark.svg" width="300" alt="Satish, in dots">
-  </picture>
-</td>
-<td valign="middle">
-
-<pre>
-<b>satish</b>@github
-─────────────────────────────────
-<b>role</b>      Data Scientist · Full Stack Dev
-<b>base</b>      Vijayawada, Andhra Pradesh 🇮🇳
-<b>langs</b>     Python · Java · JS · C · R
-<b>ml</b>        scikit-learn · TensorFlow · Pandas
-<b>big data</b>  Hadoop · Spark · Tableau
-<b>web</b>       Spring Boot · React · Node.js
-<b>learning</b>  Deep Learning · Cloud · DevOps
-<b>fuel</b>      Coffee ☕
-</pre>
-
-</td>
-</tr>
-</table>
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
+  <img src="assets/hero-dark.svg" alt="Satish - dotted portrait and profile card" width="100%">
+</picture>
+</div>
 
 ---
 
