@@ -23,9 +23,10 @@ INFO = [
 ]
 CYCLE = 40                          # seconds for one full colour flow (bigger = slower)
 OFFSET = random.uniform(0, CYCLE)   # new starting colours every time the script runs
-DRIFT = 1.0                         # how far each dot swirls on its own (1.0 = default, 2.0 = double)
-WAVE = 4.5                          # height of the rolling wave in pixels (0 = no wave)
-WAVE_T = 5.0                        # seconds for the wave to complete one loop (smaller = faster)
+LOOP = 14.0                         # seconds for one full cycle: clear picture -> scatter -> clear picture
+HOLD = 0.35                         # share of the cycle where the dots sit perfectly in place (0.35 = 35%)
+DRIFT = 1.0                         # how far each dot swirls while scattered (2.0 = double)
+WAVE = 6.0                          # height of the rolling wave while scattered, in pixels (0 = none)
 # ────────────────────────────────────────────────────
 
 GRID, CELL = 80, 5.4            # dots per side, spacing  (bigger GRID = sharper)
@@ -76,26 +77,32 @@ px = avatar.load()
 
 info = INFO + load_stats()
 
-# motion patterns: each is a small elliptical orbit with its own size, speed, direction, phase
+# motion: every group rests at (0,0) for the HOLD part of the cycle, then wanders and returns to (0,0)
+STEPS = 24
+
+def path(ax, ay, loops, phase, d):
+    pts = ["0%{transform:translate(0px,0px)}"]
+    for j in range(STEPS + 1):
+        t = j / STEPS
+        env = math.sin(math.pi * t)                 # 0 at both ends, so dots always return home
+        ang = d * 2 * math.pi * loops * t + phase
+        pct = (HOLD + (1 - HOLD) * t) * 100
+        pts.append(f"{pct:.2f}%{{transform:translate({ax*env*math.cos(ang):.2f}px,{ay*env*math.sin(ang):.2f}px)}}")
+    return "".join(pts)
+
 _rng = random.Random(42)
-variants = []
-for _ in range(VARIANTS):
-    dur = _rng.uniform(4.5, 9.0)
-    variants.append(dict(
-        ax=_rng.uniform(2.0, 4.5) * DRIFT, ay=_rng.uniform(2.0, 4.5) * DRIFT,
-        d=_rng.choice((1, -1)), dur=dur, delay=-_rng.uniform(0, dur),
-        tw=_rng.uniform(3.0, 7.0)))
-    variants[-1]["twd"] = -_rng.uniform(0, variants[-1]["tw"])
+variants = [dict(ax=_rng.uniform(2.5, 6.0) * DRIFT, ay=_rng.uniform(2.5, 6.0) * DRIFT,
+                 loops=_rng.choice((1, 2)), phase=_rng.uniform(0, 2 * math.pi),
+                 d=_rng.choice((1, -1))) for _ in range(VARIANTS)]
 
 def motion_css():
     out = []
     for i, v in enumerate(variants):
-        pts = "".join(
-            f"{k*12.5:g}%{{transform:translate({v['ax']*math.cos(v['d']*2*math.pi*k/8):.2f}px,"
-            f"{v['ay']*math.sin(v['d']*2*math.pi*k/8):.2f}px)}}" for k in range(9))
-        out.append(f"@keyframes o{i}{{{pts}}}"
-                   f".m{i}{{animation:o{i} {v['dur']:.1f}s linear {v['delay']:.1f}s infinite,"
-                   f"tw {v['tw']:.1f}s ease-in-out {v['twd']:.1f}s infinite}}")
+        out.append(f"@keyframes o{i}{{{path(v['ax'], v['ay'], v['loops'], v['phase'], v['d'])}}}"
+                   f".m{i}{{animation:o{i} {LOOP}s linear infinite}}")
+    for b in range(BANDS):                          # rolling wave: each strip is a little behind the last
+        out.append(f"@keyframes w{b}{{{path(WAVE, WAVE, 2, b * 2 * math.pi * 1.5 / BANDS, 1)}}}"
+                   f".w{b}{{animation:w{b} {LOOP}s linear infinite}}")
     return "".join(out)
 
 def build(theme: str) -> str:
@@ -142,10 +149,7 @@ def build(theme: str) -> str:
     dots = ""
     for b, band in enumerate(groups):
         inner = "".join(f'<g class="m{i}">' + "".join(g) + '</g>' for i, g in enumerate(band) if g)
-        dots += f'<g class="w" style="animation-delay:-{b * WAVE_T * 1.5 / BANDS:.2f}s">{inner}</g>'
-    wave_pts = "".join(
-        f"{k*12.5:g}%{{transform:translate({WAVE*math.cos(2*math.pi*k/8):.2f}px,{WAVE*math.sin(2*math.pi*k/8):.2f}px)}}"
-        for k in range(9))
+        dots += f'<g class="w{b}">{inner}</g>'
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Living dotted portrait and profile card">
 <defs>
@@ -162,9 +166,6 @@ def build(theme: str) -> str:
 .ln{{opacity:0;animation:slide .6s ease-out forwards}}
 .cur{{animation:blink 1s steps(2,start) infinite}}
 {motion_css()}
-.w{{animation:wv {WAVE_T}s linear infinite}}
-@keyframes wv{{{wave_pts}}}
-@keyframes tw{{0%,100%{{opacity:1}}50%{{opacity:.45}}}}
 @keyframes wave{{{kf}}}
 @keyframes reveal{{from{{opacity:0}}to{{opacity:1}}}}
 @keyframes slide{{from{{opacity:0;transform:translateX(16px)}}to{{opacity:1;transform:translateX(0)}}}}
