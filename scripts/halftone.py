@@ -26,7 +26,7 @@ OFFSET = random.uniform(0, CYCLE)   # new starting colours every time the script
 COLOR = "photo"                     # "photo" = colours copied from your profile picture   |   "gradient" = flowing rainbow
 STYLE = "code"                      # "code" = 0/1, letters & symbols   |   "dots" = round halftone dots
 LOOP = 14.0                         # seconds for one full cycle: clear picture -> scatter -> clear picture
-HOLD = 0.5                         # share of the cycle where the dots sit perfectly in place (0.35 = 35%)
+HOLD = 1.0                         # share of the cycle where the dots sit perfectly in place (0.35 = 35%)
 DRIFT = 1.0                         # how far each dot swirls while scattered (2.0 = double)
 WAVE = 6.0                          # height of the rolling wave while scattered, in pixels (0 = none)
 # ────────────────────────────────────────────────────
