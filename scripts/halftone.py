@@ -1,7 +1,7 @@
 """Generate an animated halftone hero card (living dotted portrait + profile info).
 
 Usage:  python scripts/halftone.py [github_username]
-Output: assets/hero-dark.svg, assets/hero-light.svg
+Output: assets/hero-<style>-<colour>-dark.svg and ...-light.svg
 """
 import io, json, math, os, random, sys, urllib.request
 from xml.sax.saxutils import escape
@@ -23,9 +23,10 @@ INFO = [
 ]
 CYCLE = 40                          # seconds for one full colour flow (bigger = slower)
 OFFSET = random.uniform(0, CYCLE)   # new starting colours every time the script runs
+COLOR = "photo"                     # "photo" = colours copied from your profile picture   |   "gradient" = flowing rainbow
 STYLE = "code"                      # "code" = 0/1, letters & symbols   |   "dots" = round halftone dots
 LOOP = 14.0                         # seconds for one full cycle: clear picture -> scatter -> clear picture
-HOLD = 0.5                         # share of the cycle where the dots sit perfectly in place (0.35 = 35%)
+HOLD = 0.35                         # share of the cycle where the dots sit perfectly in place (0.35 = 35%)
 DRIFT = 1.0                         # how far each dot swirls while scattered (2.0 = double)
 WAVE = 6.0                          # height of the rolling wave while scattered, in pixels (0 = none)
 # ────────────────────────────────────────────────────
@@ -66,15 +67,56 @@ def load_stats():
         print("stats skipped:", e)
         return []
 
-avatar = load_avatar().convert("L")
-side = min(avatar.size)
-avatar = avatar.crop(((avatar.width - side)//2, (avatar.height - side)//2,
-                      (avatar.width + side)//2, (avatar.height + side)//2))
+raw = load_avatar().convert("RGB")
+side = min(raw.size)
+raw = raw.crop(((raw.width - side)//2, (raw.height - side)//2,
+                (raw.width + side)//2, (raw.height + side)//2))
+avatar = raw.convert("L")
 avatar = ImageOps.autocontrast(avatar, cutoff=1)
 avatar = Image.blend(avatar, ImageOps.equalize(avatar), 0.5)
 avatar = ImageEnhance.Contrast(avatar).enhance(1.15)
 avatar = avatar.resize((GRID, GRID), Image.LANCZOS)
 px = avatar.load()
+
+# ── colours copied from the photo ──
+import colorsys
+cimg = raw.resize((GRID, GRID), Image.LANCZOS)
+cpx = cimg.load()
+
+def _hex(r, g, b):
+    return "#%02x%02x%02x" % (round(r * 255), round(g * 255), round(b * 255))
+
+def photo_color(x, y, dark):
+    """The photo's own colour for this cell, lifted/dimmed so it stays visible on the page background."""
+    h, s, v = colorsys.rgb_to_hsv(*(c / 255 for c in cpx[x, y]))
+    s = min(1.0, s * 1.25)
+    v = (0.50 + 0.50 * v) if dark else (0.12 + 0.55 * v)
+    return _hex(*colorsys.hsv_to_rgb(h, s, v))
+
+def dominant_hues(n=5):
+    q = cimg.resize((64, 64)).quantize(colors=12)
+    pal, found = q.getpalette(), sorted(q.getcolors(), reverse=True)
+    out = []
+    for _, i in found:
+        h, s, v = colorsys.rgb_to_hsv(*(c / 255 for c in pal[i*3:i*3+3]))
+        if s < 0.25 or v < 0.2:
+            continue                                   # skip greys / near-black
+        if any(min(abs(h - o), 1 - abs(h - o)) < 0.07 for o in out):
+            continue                                   # skip near-duplicate hues
+        out.append(h)
+        if len(out) == n:
+            break
+    return out
+
+if COLOR == "photo":
+    hues = dominant_hues()
+    if len(hues) >= 2:
+        hues = (hues * 5)[:5]
+        PALETTES["dark"]["colors"] = [_hex(*colorsys.hsv_to_rgb(h, 0.55, 1.0)) for h in hues]
+        PALETTES["light"]["colors"] = [_hex(*colorsys.hsv_to_rgb(h, 0.85, 0.62)) for h in hues]
+        print("palette from photo:", PALETTES["dark"]["colors"])
+    else:
+        print("photo has no strong colours - keeping default palette for text")
 
 info = INFO + load_stats()
 
@@ -116,7 +158,7 @@ def code_layers(dark: bool):
     c = (GRID - 1) / 2
     css, out = [], []
     for x in range(GRID):
-        xs, ys, ca, cb = [], [], [], []
+        xs, ys, ca, cb, cc = [], [], [], [], []
         for y in range(GRID):
             if math.hypot(x - c, y - c) > GRID / 2:
                 continue
@@ -126,6 +168,7 @@ def code_layers(dark: bool):
             xs.append(f"{PAD + x*CELL + CELL/2:.1f}")
             ys.append(f"{PAD + y*CELL + CELL/2 + fs*0.35:.1f}")
             ca.append(RAMP_A[k]); cb.append(RAMP_B[k])
+            cc.append(f' fill="{photo_color(x, y, dark)}"' if COLOR == "photo" else "")
         if not xs:
             continue
         # slide: mostly vertical, back home during HOLD and at the end of the loop
@@ -140,7 +183,7 @@ def code_layers(dark: bool):
         css.append(f"@keyframes a{x}{{{ka}}}.a{x}{{animation:a{x} {LOOP}s step-end infinite}}"
                    f"@keyframes b{x}{{{kb}}}.b{x}{{animation:b{x} {LOOP}s step-end infinite}}")
         def layer(chars):   # one explicit position per character: renders identically everywhere
-            return "".join(f'<tspan x="{a}" y="{b}">{escape(ch)}</tspan>' for a, b, ch in zip(xs, ys, chars))
+            return "".join(f'<tspan x="{a}" y="{b}"{f}>{escape(ch)}</tspan>' for a, b, ch, f in zip(xs, ys, chars, cc))
         out.append(f'<g class="c{x}"><text class="cd a{x}">{layer(ca)}</text>'
                    f'<text class="cd b{x}">{layer(cb)}</text></g>')
     css.append(f'.cd{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;'
@@ -163,7 +206,8 @@ def build(theme: str) -> str:
             r = MIN_R + (MAX_R - MIN_R) * (v ** 0.8)
             band = min(BANDS - 1, int((x + y) / (2 * (GRID - 1)) * BANDS))
             groups[band][rng.randrange(VARIANTS)].append(
-                f'<circle cx="{PAD + x*CELL + CELL/2:.1f}" cy="{PAD + y*CELL + CELL/2:.1f}" r="{r:.2f}"/>')
+                f'<circle cx="{PAD + x*CELL + CELL/2:.1f}" cy="{PAD + y*CELL + CELL/2:.1f}" r="{r:.2f}"'
+                + (f' fill="{photo_color(x, y, dark)}"' if COLOR == "photo" else "") + '/>')
 
     cols = p["colors"] + [p["colors"][0]]
     stops = "".join(f'<stop offset="{i/(len(cols)-1):.3f}" stop-color="{col}"/>' for i, col in enumerate(cols))
@@ -197,13 +241,16 @@ def build(theme: str) -> str:
             dots += f'<g class="w{b}">{inner}</g>'
         style_css = motion_css()
 
+    if COLOR == "photo":
+        defs, gfill = "", ""
+    else:
+        defs = (f'<defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="{PAD}" y1="{PAD}" x2="{PAD + PORT:.0f}" y2="{PAD + PORT:.0f}" spreadMethod="repeat">'
+                f'{stops}<animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="{PORT:.0f} {PORT:.0f}" '
+                f'dur="{CYCLE}s" begin="-{OFFSET:.1f}s" repeatCount="indefinite"/></linearGradient></defs>')
+        gfill = ' fill="url(#g)"'
+
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Animated portrait and profile card">
-<defs>
-<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="{PAD}" y1="{PAD}" x2="{PAD + PORT:.0f}" y2="{PAD + PORT:.0f}" spreadMethod="repeat">
-{stops}
-<animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="{PORT:.0f} {PORT:.0f}" dur="{CYCLE}s" begin="-{OFFSET:.1f}s" repeatCount="indefinite"/>
-</linearGradient>
-</defs>
+{defs}
 <style>
 .t{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:15px}}
 .v{{fill:{p["text"]}}}
@@ -217,7 +264,7 @@ def build(theme: str) -> str:
 @keyframes slide{{from{{opacity:0;transform:translateX(16px)}}to{{opacity:1;transform:translateX(0)}}}}
 @keyframes blink{{to{{visibility:hidden}}}}
 </style>
-<g class="all" fill="url(#g)">{dots}</g>
+<g class="all"{gfill}>{dots}</g>
 <rect x="{cx0}" y="{top:.0f}" width="{card_w}" height="{card_h:.0f}" rx="14" fill="{p["card"]}" stroke="{p["border"]}"/>
 <text x="{kx}" y="{y0:.0f}" class="t" style="font-size:18px;font-weight:700"><tspan class="k" style="animation-delay:-{OFFSET:.1f}s">{escape(USER.lower())}</tspan><tspan class="v">@</tspan><tspan class="k" style="animation-delay:-{3 + OFFSET:.1f}s">{HOST}</tspan></text>
 <line x1="{kx}" y1="{y0+14:.0f}" x2="{cx0+card_w-30}" y2="{y0+14:.0f}" stroke="{p["border"]}" stroke-width="1.5"/>
@@ -225,8 +272,13 @@ def build(theme: str) -> str:
 <rect class="cur k" x="{kx}" y="{cursor_y:.0f}" width="9" height="17" style="animation-delay:-{5 + OFFSET:.1f}s"/>
 </svg>'''
 
+import glob
 os.makedirs("assets", exist_ok=True)
+keep = {f"assets/hero-{STYLE}-{COLOR}-{t}.svg" for t in ("dark", "light")}
+for old in glob.glob("assets/hero-*.svg") + glob.glob("assets/avatar-*.svg"):
+    if old not in keep:                      # remove files from older versions
+        os.remove(old)
 for theme in ("dark", "light"):
-    with open(f"assets/hero-{theme}.svg", "w", encoding="utf-8") as f:
+    with open(f"assets/hero-{STYLE}-{COLOR}-{theme}.svg", "w", encoding="utf-8") as f:
         f.write(build(theme))
-print("done")
+print(f"done: style={STYLE}, color={COLOR}, files={sorted(keep)}")
