@@ -3,7 +3,7 @@
 Usage:  python scripts/halftone.py [github_username]
 Output: assets/avatar-dark.svg, assets/avatar-light.svg
 """
-import io, math, sys, urllib.request
+import io, math, os, sys, urllib.request
 from PIL import Image, ImageOps, ImageEnhance
 
 USER = sys.argv[1] if len(sys.argv) > 1 else "Satish-970"
@@ -49,6 +49,7 @@ def build(dark: bool) -> str:
 {''.join(dots)}
 </svg>'''
 
+os.makedirs("assets", exist_ok=True)
 for name, dark in (("dark", True), ("light", False)):
     open(f"assets/avatar-{name}.svg", "w").write(build(dark))
 print("done")
