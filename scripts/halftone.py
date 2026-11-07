@@ -3,7 +3,7 @@
 Usage:  python scripts/halftone.py [github_username]
 Output: assets/hero-dark.svg, assets/hero-light.svg
 """
-import io, json, math, os, sys, urllib.request
+import io, json, math, os, random, sys, urllib.request
 from xml.sax.saxutils import escape
 from PIL import Image, ImageOps, ImageEnhance
 
@@ -21,6 +21,9 @@ INFO = [
     ("learning", "Deep Learning · Cloud · DevOps"),
     ("fuel",     "Coffee"),
 ]
+
+CYCLE = 40      # seconds for one full colour cycle (bigger = slower)
+OFFSET = random.uniform(0, CYCLE)   # new starting colours every time the script runs
 # ────────────────────────────────────────────────────
 
 GRID, CELL = 80, 5.4            # dots per side, spacing  (bigger GRID = sharper)
@@ -89,13 +92,13 @@ def build(theme: str) -> str:
 
     stops = p["colors"] + [p["colors"][0]]
     kf = "".join(f"{round(i*100/(len(stops)-1))}%{{fill:{col}}}" for i, col in enumerate(stops))
-    band_css = "".join(f".b{i}{{--r:{i*0.04:.2f}s;--c:-{i*0.14:.2f}s}}" for i in range(BUCKETS))
+    band_css = "".join(f".b{i}{{--r:{i*0.04:.2f}s;--c:-{i*CYCLE*0.5/BUCKETS + OFFSET:.2f}s}}" for i in range(BUCKETS))
 
     # text card geometry
     n = len(info)
-    row = 31
+    row = min(38, (PORT - 88) / n)
     card_h = 40 + 24 + n * row + 24
-    top = (H - card_h) / 2
+    top = PAD + (PORT - card_h) / 2
     cx0 = PAD + PORT + 30
     card_w = W - cx0 - PAD
     kx, vx = cx0 + 30, cx0 + 30 + 112
@@ -105,7 +108,7 @@ def build(theme: str) -> str:
         y = y0 + 40 + i * row
         lines.append(
             f'<g class="ln" style="animation-delay:{0.6 + i*0.18:.2f}s">'
-            f'<text x="{kx}" y="{y:.0f}" class="t k" style="animation-delay:-{i*1.1:.1f}s">{escape(k)}</text>'
+            f'<text x="{kx}" y="{y:.0f}" class="t k" style="animation-delay:-{i*CYCLE/12 + OFFSET:.1f}s">{escape(k)}</text>'
             f'<text x="{vx}" y="{y:.0f}" class="t v">{escape(v)}</text></g>')
     last_y = y0 + 40 + (n - 1) * row
     cursor_y = last_y + row - 13
@@ -114,8 +117,8 @@ def build(theme: str) -> str:
 <style>
 .t{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:15px}}
 .v{{fill:{p["text"]}}}
-.k{{font-weight:700;animation:wave 9s linear infinite}}
-.d{{animation:reveal 1s ease-out both,wave 9s linear infinite;animation-delay:var(--r),var(--c)}}
+.k{{font-weight:700;animation:wave {CYCLE}s linear infinite}}
+.d{{animation:reveal 1.4s ease-out both,wave {CYCLE}s linear infinite;animation-delay:var(--r),var(--c)}}
 .ln{{opacity:0;animation:slide .6s ease-out forwards}}
 .cur{{animation:blink 1s steps(2,start) infinite}}
 {band_css}
@@ -126,10 +129,10 @@ def build(theme: str) -> str:
 </style>
 {"".join(f'<g class="d b{i}">' + "".join(b) + '</g>' for i, b in enumerate(bands))}
 <rect x="{cx0}" y="{top:.0f}" width="{card_w}" height="{card_h:.0f}" rx="14" fill="{p["card"]}" stroke="{p["border"]}"/>
-<text x="{kx}" y="{y0:.0f}" class="t" style="font-size:18px;font-weight:700"><tspan class="k">{escape(USER.lower())}</tspan><tspan class="v">@</tspan><tspan class="k" style="animation-delay:-3s">{HOST}</tspan></text>
+<text x="{kx}" y="{y0:.0f}" class="t" style="font-size:18px;font-weight:700"><tspan class="k">{escape(USER.lower())}</tspan><tspan class="v">@</tspan><tspan class="k" style="animation-delay:-{3 + OFFSET:.1f}s">{HOST}</tspan></text>
 <line x1="{kx}" y1="{y0+14:.0f}" x2="{cx0+card_w-30}" y2="{y0+14:.0f}" stroke="{p["border"]}" stroke-width="1.5"/>
 {"".join(lines)}
-<rect class="cur k" x="{kx}" y="{cursor_y:.0f}" width="9" height="17" style="animation-delay:-5s"/>
+<rect class="cur k" x="{kx}" y="{cursor_y:.0f}" width="9" height="17" style="animation-delay:-{5 + OFFSET:.1f}s"/>
 </svg>'''
 
 os.makedirs("assets", exist_ok=True)
