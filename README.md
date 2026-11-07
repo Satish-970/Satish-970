@@ -9,14 +9,6 @@
 
 </div>
 
----
-
-<div align="center">
-
-## 👋 Meet Satish Pakalapati
-
-</div>
-
 <div align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
