@@ -6,6 +6,27 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=2800&pause=900&color=3B82F6&center=true&vCenter=true&width=800&lines=Building+Intelligent+Solutions+%F0%9F%A4%96;Data+Science+%7C+Machine+Learning+%7C+Web+Development;Transforming+Data+into+Insights+%F0%9F%93%8A;Open+Source+Contributor+%F0%9F%8C%9F" alt="Typing SVG" />
 </p>
 
+
+</div>
+
+---
+
+<div align="center">
+
+## 👋 Meet Satish
+
+</div>
+
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
+  <img src="assets/hero-dark.svg" alt="Satish - dotted portrait and profile card" width="100%">
+</picture>
+</div>
+
+<div align="center">
+
 <!-- Social Badges -->
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://satishpakalapati.netlify.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/satishpakalapati)
@@ -16,22 +37,6 @@
 <!-- Profile Views Counter -->
 <img src="https://komarev.com/ghpvc/?username=satish-970&label=Profile%20Views&color=brightgreen&style=for-the-badge" alt="Profile Views" />
 
-</div>
-
----
-
-<div align="center">
-
-## 👋 Meet Satish Pakalapati
-
-</div>
-
-<div align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-  <img src="assets/hero-dark.svg" alt="Satish - dotted portrait and profile card" width="100%">
-</picture>
 </div>
 
 ---
