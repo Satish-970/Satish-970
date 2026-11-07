@@ -23,12 +23,15 @@ INFO = [
 ]
 CYCLE = 40                          # seconds for one full colour flow (bigger = slower)
 OFFSET = random.uniform(0, CYCLE)   # new starting colours every time the script runs
-DRIFT = 1.0                         # how far each dot wanders (1.0 = default, 2.0 = double)
+DRIFT = 1.0                         # how far each dot swirls on its own (1.0 = default, 2.0 = double)
+WAVE = 4.5                          # height of the rolling wave in pixels (0 = no wave)
+WAVE_T = 5.0                        # seconds for the wave to complete one loop (smaller = faster)
 # ────────────────────────────────────────────────────
 
 GRID, CELL = 80, 5.4            # dots per side, spacing  (bigger GRID = sharper)
 MIN_R, MAX_R = 0.75, CELL * 0.52
-VARIANTS = 16                   # different motion patterns shared out among the dots
+VARIANTS = 6                    # different swirl patterns inside every wave band
+BANDS = 24                      # the wave travels across the portrait in this many strips
 PAD = 14
 PORT = GRID * CELL
 W, H = 980, int(PORT + 2 * PAD)
@@ -79,7 +82,7 @@ variants = []
 for _ in range(VARIANTS):
     dur = _rng.uniform(4.5, 9.0)
     variants.append(dict(
-        ax=_rng.uniform(0.9, 2.3) * DRIFT, ay=_rng.uniform(0.9, 2.3) * DRIFT,
+        ax=_rng.uniform(2.0, 4.5) * DRIFT, ay=_rng.uniform(2.0, 4.5) * DRIFT,
         d=_rng.choice((1, -1)), dur=dur, delay=-_rng.uniform(0, dur),
         tw=_rng.uniform(3.0, 7.0)))
     variants[-1]["twd"] = -_rng.uniform(0, variants[-1]["tw"])
@@ -101,7 +104,7 @@ def build(theme: str) -> str:
     c = (GRID - 1) / 2
     rng = random.Random(1)
 
-    groups = [[] for _ in range(VARIANTS)]
+    groups = [[[] for _ in range(VARIANTS)] for _ in range(BANDS)]
     for y in range(GRID):
         for x in range(GRID):
             if math.hypot(x - c, y - c) > GRID / 2:
@@ -109,7 +112,8 @@ def build(theme: str) -> str:
             v = px[x, y] / 255
             v = v if dark else 1 - v
             r = MIN_R + (MAX_R - MIN_R) * (v ** 0.8)
-            groups[rng.randrange(VARIANTS)].append(
+            band = min(BANDS - 1, int((x + y) / (2 * (GRID - 1)) * BANDS))
+            groups[band][rng.randrange(VARIANTS)].append(
                 f'<circle cx="{PAD + x*CELL + CELL/2:.1f}" cy="{PAD + y*CELL + CELL/2:.1f}" r="{r:.2f}"/>')
 
     cols = p["colors"] + [p["colors"][0]]
@@ -135,7 +139,13 @@ def build(theme: str) -> str:
     last_y = y0 + 40 + (n - 1) * row
     cursor_y = last_y + row - 13
 
-    dots = "".join(f'<g class="m{i}">' + "".join(g) + '</g>' for i, g in enumerate(groups))
+    dots = ""
+    for b, band in enumerate(groups):
+        inner = "".join(f'<g class="m{i}">' + "".join(g) + '</g>' for i, g in enumerate(band) if g)
+        dots += f'<g class="w" style="animation-delay:-{b * WAVE_T * 1.5 / BANDS:.2f}s">{inner}</g>'
+    wave_pts = "".join(
+        f"{k*12.5:g}%{{transform:translate({WAVE*math.cos(2*math.pi*k/8):.2f}px,{WAVE*math.sin(2*math.pi*k/8):.2f}px)}}"
+        for k in range(9))
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Living dotted portrait and profile card">
 <defs>
@@ -152,6 +162,8 @@ def build(theme: str) -> str:
 .ln{{opacity:0;animation:slide .6s ease-out forwards}}
 .cur{{animation:blink 1s steps(2,start) infinite}}
 {motion_css()}
+.w{{animation:wv {WAVE_T}s linear infinite}}
+@keyframes wv{{{wave_pts}}}
 @keyframes tw{{0%,100%{{opacity:1}}50%{{opacity:.45}}}}
 @keyframes wave{{{kf}}}
 @keyframes reveal{{from{{opacity:0}}to{{opacity:1}}}}
