@@ -1,55 +1,139 @@
-"""Turn a GitHub avatar into an animated halftone (dotted) SVG.
+"""Generate an animated halftone hero card (dotted portrait + profile info).
 
 Usage:  python scripts/halftone.py [github_username]
-Output: assets/avatar-dark.svg, assets/avatar-light.svg
+Output: assets/hero-dark.svg, assets/hero-light.svg
 """
-import io, math, os, sys, urllib.request
+import io, json, math, os, sys, urllib.request
+from xml.sax.saxutils import escape
 from PIL import Image, ImageOps, ImageEnhance
 
 USER = sys.argv[1] if len(sys.argv) > 1 else "Satish-970"
-GRID = 56          # dots per row/column (higher = more detail)
-CELL = 8           # px between dot centres
-MAX_R = CELL * 0.52
 
-req = urllib.request.Request(f"https://github.com/{USER}.png?size=460",
-                             headers={"User-Agent": "halftone-script"})
-img = Image.open(io.BytesIO(urllib.request.urlopen(req).read())).convert("L")
-img = ImageOps.autocontrast(img, cutoff=2)
-img = ImageEnhance.Contrast(img).enhance(1.25)
-img = img.resize((GRID, GRID), Image.LANCZOS)
-px = img.load()
+# ───────────── edit the card text here ─────────────
+HOST = "github"
+INFO = [
+    ("role",     "Data Scientist · Full Stack Developer"),
+    ("base",     "Vijayawada, Andhra Pradesh, India"),
+    ("langs",    "Python · Java · JavaScript · C · R"),
+    ("ml",       "scikit-learn · TensorFlow · Pandas"),
+    ("big data", "Hadoop · Spark · Tableau"),
+    ("web",      "Spring Boot · React · Node.js"),
+    ("learning", "Deep Learning · Cloud · DevOps"),
+    ("fuel",     "Coffee"),
+]
+# ────────────────────────────────────────────────────
 
-SIZE = GRID * CELL
-c = (GRID - 1) / 2
+GRID, CELL = 80, 5.4            # dots per side, spacing  (bigger GRID = sharper)
+MIN_R, MAX_R = 0.75, CELL * 0.52
+BUCKETS = 40                    # colour-wave bands
+PAD = 14
+PORT = GRID * CELL
+W, H = 980, int(PORT + 2 * PAD)
 
-def build(dark: bool) -> str:
-    color = "#58A6FF" if dark else "#0969DA"
-    dots = []
+PALETTES = {
+    "dark":  dict(colors=["#58A6FF", "#A371F7", "#F778BA", "#FFA657", "#3FB950"],
+                  text="#C9D1D9", card="#161B22", border="#30363D"),
+    "light": dict(colors=["#0969DA", "#8250DF", "#BF3989", "#BC4C00", "#1A7F37"],
+                  text="#24292F", card="#F6F8FA", border="#D0D7DE"),
+}
+
+# ── data ──
+def load_avatar():
+    path = os.environ.get("AVATAR_FILE")
+    if path:
+        return Image.open(path)
+    req = urllib.request.Request(f"https://github.com/{USER}.png?size=600",
+                                 headers={"User-Agent": "halftone-script"})
+    return Image.open(io.BytesIO(urllib.request.urlopen(req, timeout=20).read()))
+
+def load_stats():
+    try:
+        h = {"User-Agent": "halftone-script"}
+        if os.environ.get("GH_TOKEN"):
+            h["Authorization"] = "Bearer " + os.environ["GH_TOKEN"]
+        r = urllib.request.Request(f"https://api.github.com/users/{USER}", headers=h)
+        d = json.load(urllib.request.urlopen(r, timeout=15))
+        return [("repos", f"{d['public_repos']} public"), ("followers", str(d["followers"]))]
+    except Exception as e:
+        print("stats skipped:", e)
+        return []
+
+avatar = load_avatar().convert("L")
+side = min(avatar.size)
+avatar = avatar.crop(((avatar.width - side)//2, (avatar.height - side)//2,
+                      (avatar.width + side)//2, (avatar.height + side)//2))
+avatar = ImageOps.autocontrast(avatar, cutoff=1)
+avatar = Image.blend(avatar, ImageOps.equalize(avatar), 0.5)   # lift detail in dark/bright areas
+avatar = ImageEnhance.Contrast(avatar).enhance(1.15)
+avatar = avatar.resize((GRID, GRID), Image.LANCZOS)
+px = avatar.load()
+
+info = INFO + load_stats()
+
+def build(theme: str) -> str:
+    p = PALETTES[theme]
+    dark = theme == "dark"
+    c = (GRID - 1) / 2
+
+    # dots grouped into colour-wave bands
+    bands = [[] for _ in range(BUCKETS)]
     for y in range(GRID):
         for x in range(GRID):
-            dist = math.hypot(x - c, y - c)
-            if dist > GRID / 2:            # circular crop
+            if math.hypot(x - c, y - c) > GRID / 2:
                 continue
             v = px[x, y] / 255
-            v = v if dark else 1 - v       # dark bg: bright = big dot
-            r = MAX_R * (v ** 0.9)
-            if r < 0.5:
-                continue
-            delay = dist * 0.035           # ripple from the centre
-            dots.append(
-                f'<circle cx="{x*CELL+CELL/2}" cy="{y*CELL+CELL/2}" r="{r:.2f}" '
-                f'style="animation-delay:{delay:.2f}s"/>'
-            )
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {SIZE} {SIZE}" width="320" height="320">
+            v = v if dark else 1 - v
+            r = MIN_R + (MAX_R - MIN_R) * (v ** 0.8)
+            b = min(BUCKETS - 1, int((x + y) / (2 * (GRID - 1)) * BUCKETS))
+            bands[b].append(f'<circle cx="{PAD + x*CELL + CELL/2:.1f}" cy="{PAD + y*CELL + CELL/2:.1f}" r="{r:.2f}"/>')
+
+    stops = p["colors"] + [p["colors"][0]]
+    kf = "".join(f"{round(i*100/(len(stops)-1))}%{{fill:{col}}}" for i, col in enumerate(stops))
+    band_css = "".join(f".b{i}{{--r:{i*0.04:.2f}s;--c:-{i*0.14:.2f}s}}" for i in range(BUCKETS))
+
+    # text card geometry
+    n = len(info)
+    row = 31
+    card_h = 40 + 24 + n * row + 24
+    top = (H - card_h) / 2
+    cx0 = PAD + PORT + 30
+    card_w = W - cx0 - PAD
+    kx, vx = cx0 + 30, cx0 + 30 + 112
+    y0 = top + 46
+    lines = []
+    for i, (k, v) in enumerate(info):
+        y = y0 + 40 + i * row
+        lines.append(
+            f'<g class="ln" style="animation-delay:{0.6 + i*0.18:.2f}s">'
+            f'<text x="{kx}" y="{y:.0f}" class="t k" style="animation-delay:-{i*1.1:.1f}s">{escape(k)}</text>'
+            f'<text x="{vx}" y="{y:.0f}" class="t v">{escape(v)}</text></g>')
+    last_y = y0 + 40 + (n - 1) * row
+    cursor_y = last_y + row - 13
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Dotted portrait and profile card">
 <style>
-  circle {{ fill:{color}; opacity:0; animation: pop .6s ease-out forwards, breathe 5s ease-in-out 3s infinite; transform-box:fill-box; transform-origin:center; }}
-  @keyframes pop {{ from {{ opacity:0; transform:scale(0); }} to {{ opacity:1; transform:scale(1); }} }}
-  @keyframes breathe {{ 0%,100% {{ opacity:1; }} 50% {{ opacity:.55; }} }}
+.t{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:15px}}
+.v{{fill:{p["text"]}}}
+.k{{font-weight:700;animation:wave 9s linear infinite}}
+.d{{animation:reveal 1s ease-out both,wave 9s linear infinite;animation-delay:var(--r),var(--c)}}
+.ln{{opacity:0;animation:slide .6s ease-out forwards}}
+.cur{{animation:blink 1s steps(2,start) infinite}}
+{band_css}
+@keyframes wave{{{kf}}}
+@keyframes reveal{{from{{opacity:0}}to{{opacity:1}}}}
+@keyframes slide{{from{{opacity:0;transform:translateX(16px)}}to{{opacity:1;transform:translateX(0)}}}}
+@keyframes blink{{to{{visibility:hidden}}}}
 </style>
-{''.join(dots)}
+{"".join(f'<g class="d b{i}">' + "".join(b) + '</g>' for i, b in enumerate(bands))}
+<rect x="{cx0}" y="{top:.0f}" width="{card_w}" height="{card_h:.0f}" rx="14" fill="{p["card"]}" stroke="{p["border"]}"/>
+<text x="{kx}" y="{y0:.0f}" class="t" style="font-size:18px;font-weight:700"><tspan class="k">{escape(USER.lower())}</tspan><tspan class="v">@</tspan><tspan class="k" style="animation-delay:-3s">{HOST}</tspan></text>
+<line x1="{kx}" y1="{y0+14:.0f}" x2="{cx0+card_w-30}" y2="{y0+14:.0f}" stroke="{p["border"]}" stroke-width="1.5"/>
+{"".join(lines)}
+<rect class="cur k" x="{kx}" y="{cursor_y:.0f}" width="9" height="17" style="animation-delay:-5s"/>
 </svg>'''
 
 os.makedirs("assets", exist_ok=True)
-for name, dark in (("dark", True), ("light", False)):
-    open(f"assets/avatar-{name}.svg", "w").write(build(dark))
+for theme in ("dark", "light"):
+    with open(f"assets/hero-{theme}.svg", "w", encoding="utf-8") as f:
+        f.write(build(theme))
 print("done")
