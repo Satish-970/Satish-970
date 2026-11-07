@@ -23,13 +23,14 @@ INFO = [
 ]
 CYCLE = 40                          # seconds for one full colour flow (bigger = slower)
 OFFSET = random.uniform(0, CYCLE)   # new starting colours every time the script runs
+STYLE = "code"                      # "code" = 0/1, letters & symbols   |   "dots" = round halftone dots
 LOOP = 14.0                         # seconds for one full cycle: clear picture -> scatter -> clear picture
 HOLD = 0.35                         # share of the cycle where the dots sit perfectly in place (0.35 = 35%)
 DRIFT = 1.0                         # how far each dot swirls while scattered (2.0 = double)
 WAVE = 6.0                          # height of the rolling wave while scattered, in pixels (0 = none)
 # ────────────────────────────────────────────────────
 
-GRID, CELL = 80, 5.4            # dots per side, spacing  (bigger GRID = sharper)
+GRID, CELL = (64, 6.75) if STYLE == "code" else (80, 5.4)   # cells per side, spacing (bigger GRID = sharper)
 MIN_R, MAX_R = 0.75, CELL * 0.52
 VARIANTS = 6                    # different swirl patterns inside every wave band
 BANDS = 24                      # the wave travels across the portrait in this many strips
@@ -105,6 +106,47 @@ def motion_css():
                    f".w{b}{{animation:w{b} {LOOP}s linear infinite}}")
     return "".join(out)
 
+RAMP_A = [".", ":", "1", "0", "+", "7", "X", "A", "M", "#", "@"]   # dark -> bright
+RAMP_B = [",", ";", "0", "1", "x", "2", "K", "V", "W", "%", "&"]   # flicker twins of the above
+
+def code_layers(dark: bool):
+    """Characters grouped by column. Columns slide like falling code, flicker, then lock back into place."""
+    rng = random.Random(7)
+    fs = CELL * 1.1
+    c = (GRID - 1) / 2
+    css, out = [], []
+    for x in range(GRID):
+        xs, ys, ca, cb = [], [], [], []
+        for y in range(GRID):
+            if math.hypot(x - c, y - c) > GRID / 2:
+                continue
+            v = px[x, y] / 255
+            v = (v if dark else 1 - v) ** 0.9
+            k = min(len(RAMP_A) - 1, int(v * len(RAMP_A)))
+            xs.append(f"{PAD + x*CELL + CELL/2:.1f}")
+            ys.append(f"{PAD + y*CELL + CELL/2 + fs*0.35:.1f}")
+            ca.append(RAMP_A[k]); cb.append(RAMP_B[k])
+        if not xs:
+            continue
+        # slide: mostly vertical, back home during HOLD and at the end of the loop
+        css.append(f"@keyframes c{x}{{{path(rng.uniform(1.5, 4) * DRIFT, rng.uniform(14, 42) * DRIFT, rng.choice((1, 2)), rng.uniform(0, 6.28), rng.choice((1, -1)))}}}"
+                   f".c{x}{{animation:c{x} {LOOP}s linear infinite}}")
+        # flicker: swap between the two glyph layers a few times, always ends on layer A
+        times = sorted(rng.uniform(HOLD + 0.04, 0.96) * 100 for _ in range(6))
+        ka = f"0%{{opacity:1}}{HOLD*100:.1f}%{{opacity:1}}" + "".join(
+            f"{t:.1f}%{{opacity:{1 if (i + 1) % 2 == 0 else 0}}}" for i, t in enumerate(times)) + "100%{opacity:1}"
+        kb = f"0%{{opacity:0}}{HOLD*100:.1f}%{{opacity:0}}" + "".join(
+            f"{t:.1f}%{{opacity:{0 if (i + 1) % 2 == 0 else 1}}}" for i, t in enumerate(times)) + "100%{opacity:0}"
+        css.append(f"@keyframes a{x}{{{ka}}}.a{x}{{animation:a{x} {LOOP}s step-end infinite}}"
+                   f"@keyframes b{x}{{{kb}}}.b{x}{{animation:b{x} {LOOP}s step-end infinite}}")
+        def layer(chars):   # one explicit position per character: renders identically everywhere
+            return "".join(f'<tspan x="{a}" y="{b}">{escape(ch)}</tspan>' for a, b, ch in zip(xs, ys, chars))
+        out.append(f'<g class="c{x}"><text class="cd a{x}">{layer(ca)}</text>'
+                   f'<text class="cd b{x}">{layer(cb)}</text></g>')
+    css.append(f'.cd{{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;'
+               f'font-size:{fs:.1f}px;font-weight:700;text-anchor:middle}}')
+    return "".join(out), "".join(css)
+
 def build(theme: str) -> str:
     p = PALETTES[theme]
     dark = theme == "dark"
@@ -146,12 +188,16 @@ def build(theme: str) -> str:
     last_y = y0 + 40 + (n - 1) * row
     cursor_y = last_y + row - 13
 
-    dots = ""
-    for b, band in enumerate(groups):
-        inner = "".join(f'<g class="m{i}">' + "".join(g) + '</g>' for i, g in enumerate(band) if g)
-        dots += f'<g class="w{b}">{inner}</g>'
+    if STYLE == "code":
+        dots, style_css = code_layers(dark)
+    else:
+        dots = ""
+        for b, band in enumerate(groups):
+            inner = "".join(f'<g class="m{i}">' + "".join(g) + '</g>' for i, g in enumerate(band) if g)
+            dots += f'<g class="w{b}">{inner}</g>'
+        style_css = motion_css()
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Living dotted portrait and profile card">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Animated portrait and profile card">
 <defs>
 <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="{PAD}" y1="{PAD}" x2="{PAD + PORT:.0f}" y2="{PAD + PORT:.0f}" spreadMethod="repeat">
 {stops}
@@ -165,7 +211,7 @@ def build(theme: str) -> str:
 .all{{animation:reveal 1.6s ease-out both}}
 .ln{{opacity:0;animation:slide .6s ease-out forwards}}
 .cur{{animation:blink 1s steps(2,start) infinite}}
-{motion_css()}
+{style_css}
 @keyframes wave{{{kf}}}
 @keyframes reveal{{from{{opacity:0}}to{{opacity:1}}}}
 @keyframes slide{{from{{opacity:0;transform:translateX(16px)}}to{{opacity:1;transform:translateX(0)}}}}
